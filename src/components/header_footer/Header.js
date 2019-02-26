@@ -13,34 +13,34 @@ class Header extends Component {
     headerShow: false
   };
 
-  //   componentDidMount() {
-  //     window.addEventListener("scroll", this.handleScroll);
-  //   }
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
 
-  //   handleScroll = () => {
-  //     if (window.scrollY > 0) {
-  //       this.setState({
-  //         headerShow: true
-  //       });
-  //     } else {
-  //       this.setState({
-  //         headerShow: false
-  //       });
-  //     }
-  //   };
+  handleScroll = () => {
+    if (window.scrollY > 0) {
+      this.setState({
+        headerShow: true
+      });
+    } else {
+      this.setState({
+        headerShow: false
+      });
+    }
+  };
 
-  //   toggleDrawer = value => {
-  //     this.setState({
-  //       drawerOpen: value
-  //     });
-  //   };
+  toggleDrawer = value => {
+    this.setState({
+      drawerOpen: value
+    });
+  };
 
   render() {
     return (
       <AppBar
         position="fixed"
         style={{
-          backgroundColor: "#2f2f2f",
+          backgroundColor: this.state.headerShow ? "#2f2f2f" : "transparent",
           boxShadow: "none",
           padding: "10px 0px"
         }}
@@ -59,10 +59,10 @@ class Header extends Component {
             <MenuIcon />
           </IconButton>
 
-          {/* <SideDrawer
+          <SideDrawer
             open={this.state.drawerOpen}
             onClose={value => this.toggleDrawer(value)}
-          /> */}
+          />
         </Toolbar>
       </AppBar>
     );
